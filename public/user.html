@@ -1,0 +1,24 @@
+<h2>User Chat</h2>
+
+<div id="chat"></div>
+
+<input id="msg" placeholder="User message">
+<button onclick="send()">Send</button>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const socket = io();
+socket.emit("join", "user");
+
+function send(){
+    const msg = document.getElementById("msg").value;
+    socket.emit("chat-message", msg);
+}
+
+socket.on("chat-message", (data)=>{
+    const p = document.createElement("p");
+    p.innerText = data.message;
+    p.style.textAlign = data.role === "user" ? "left" : "right";
+    document.getElementById("chat").appendChild(p);
+});
+</script>

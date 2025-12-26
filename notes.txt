@@ -1,0 +1,16 @@
+NetworkSocket:used for real time communication b/w client and server
+
+1.TCP Socket 
+used in web,chat,email
+
+2.UDP Socket
+faster but not reliable
+some data may be lost
+used in video and gaming
+
+
+
+
+
+WebSocket: communication between browser and server
+
